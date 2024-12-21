@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.domain.usecase
+package com.nalldev.snow.domain.usecase
 
 data class WsUseCase(
     val wsConnect: WsConnect,

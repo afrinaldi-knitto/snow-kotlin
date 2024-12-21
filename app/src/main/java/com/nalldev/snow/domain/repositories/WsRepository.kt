@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.domain.repositories
+package com.nalldev.snow.domain.repositories
 
 import kotlinx.coroutines.flow.Flow
 

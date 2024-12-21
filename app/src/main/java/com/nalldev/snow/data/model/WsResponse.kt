@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.data.model
+package com.nalldev.snow.data.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName

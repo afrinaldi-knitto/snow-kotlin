@@ -1,6 +1,6 @@
-package com.nalldev.snow.presentation.di
+package com.nalldev.snow.di
 
-import com.nalldev.snow.presentation.data.network.NetworkDataSource
+import com.nalldev.snow.data.network.NetworkDataSource
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineDispatcher
 import org.koin.core.qualifier.named

@@ -1,14 +1,11 @@
-package com.nalldev.snow.presentation.data.network
+package com.nalldev.snow.data.network
 
-import com.nalldev.snow.presentation.data.model.WsResponse
+import com.nalldev.snow.data.model.WsResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.websocket.receiveDeserialized
 import io.ktor.client.plugins.websocket.webSocket
 import io.ktor.http.HttpMethod
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 

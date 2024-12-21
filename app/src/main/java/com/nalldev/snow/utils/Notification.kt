@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.utils
+package com.nalldev.snow.utils
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

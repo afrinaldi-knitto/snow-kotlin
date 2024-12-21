@@ -1,6 +1,6 @@
-package com.nalldev.snow.presentation.domain.usecase
+package com.nalldev.snow.domain.usecase
 
-import com.nalldev.snow.presentation.domain.repositories.WsRepository
+import com.nalldev.snow.domain.repositories.WsRepository
 import kotlinx.coroutines.flow.Flow
 
 class WsConnect(

@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.di
+package com.nalldev.snow.di
 
 import android.util.Log
 import io.ktor.client.HttpClient

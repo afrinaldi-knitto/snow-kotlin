@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.presentation
+package com.nalldev.snow.presentation
 
 import android.Manifest
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -24,7 +25,7 @@ import androidx.wear.tooling.preview.devices.WearDevices
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.nalldev.snow.presentation.theme.SnowTheme
+import com.nalldev.snow.theme.SnowTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -61,19 +62,30 @@ fun WearApp() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colors.background),
+                .background(MaterialTheme.colors.background)
+                .padding(horizontal = 8.dp),
             contentAlignment = Alignment.Center
         ) {
             if (notificationPermissionState.status.isGranted) {
-                Text("Started")
+                if (viewModel.isWsConnected) {
+                    Button(modifier = Modifier.fillMaxWidth(), onClick = {
+                        viewModel.doWsClose()
+                    }) {
+                        Text("Disconnect")
+                    }
+                } else {
+                    Button(modifier = Modifier.fillMaxWidth(), onClick = {
+                        viewModel.doWsConnect()
+                    }) {
+                        Text("Connect")
+                    }
+                }
             } else {
                 Button(modifier = Modifier.fillMaxWidth(), onClick = {
                     notificationPermissionState.launchPermissionRequest()
                 }) {
                     Text("Izinkan Notifikasi")
                 }
-
-                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     }

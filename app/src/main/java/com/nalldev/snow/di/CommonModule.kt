@@ -1,4 +1,4 @@
-package com.nalldev.snow.presentation.di
+package com.nalldev.snow.di
 
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.qualifier.named

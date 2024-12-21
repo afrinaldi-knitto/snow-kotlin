@@ -1,7 +1,7 @@
-package com.nalldev.snow.presentation.data.repositories
+package com.nalldev.snow.data.repositories
 
-import com.nalldev.snow.presentation.data.network.NetworkDataSource
-import com.nalldev.snow.presentation.domain.repositories.WsRepository
+import com.nalldev.snow.data.network.NetworkDataSource
+import com.nalldev.snow.domain.repositories.WsRepository
 
 class WsRepositoryImpl(
     private val networkDataSource : NetworkDataSource
