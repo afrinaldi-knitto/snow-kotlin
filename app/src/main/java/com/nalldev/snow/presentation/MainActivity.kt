@@ -2,6 +2,8 @@ package com.nalldev.snow.presentation
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -25,6 +27,8 @@ import androidx.wear.tooling.preview.devices.WearDevices
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.nalldev.snow.theme.SnowTheme
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -36,7 +40,20 @@ class MainActivity : ComponentActivity() {
 
         setTheme(android.R.style.Theme_DeviceDefault)
 
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.e("FCM Notify", "Fetching FCM registration token failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                val token: String? = task.result
+                Log.e("FCM Token", token, task.exception)
+                Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
+            })
+
         setContent {
+
             WearApp()
         }
     }
